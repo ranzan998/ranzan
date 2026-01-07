@@ -30,20 +30,59 @@
         }
         
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
+            background-image: url('test1.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            padding: 60px 40px;
         }
         
-        header h1 {
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(30, 60, 114, 0.7);
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            min-width: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .header-text {
+            color: white;
+        }
+        
+        .header-text h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
+            color: white;
         }
         
-        header p {
+        .header-text p {
             font-size: 1.2em;
-            opacity: 0.9;
+            opacity: 0.95;
+            color: white;
         }
         
         .contact-info {
@@ -189,8 +228,19 @@
         }
         
         @media (max-width: 768px) {
-            header h1 {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .header-text h1 {
                 font-size: 2em;
+            }
+            
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+                min-width: 120px;
             }
             
             .contact-info {
@@ -207,8 +257,13 @@
 <body>
     <div class="container">
         <header>
-            <h1>Ranjan Kumar Sahu</h1>
-            <p>Oceanographer</p>
+            <div class="header-content">
+                <img src="test2.png" alt="Profile Photo" class="profile-photo">
+                <div class="header-text">
+                    <h1>Ranjan Kumar Sahu</h1>
+                    <p>Oceanographer</p>
+                </div>
+            </div>
         </header>
         
         <div class="contact-info">
